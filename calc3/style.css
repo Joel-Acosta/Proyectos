@@ -5,17 +5,18 @@ body{
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    background-color: rgb(64, 63, 63);
 }
 
 .btn{
     height: 75px;
     width: 75px;
-    margin: 15px;
+    margin: 3px;
 }
 
 .number{
     border: 1px solid rgb(99, 135, 49);
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .number:hover{
@@ -24,22 +25,22 @@ body{
 
 .operator{
     border: 1px solid steelblue;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .decimal{
     border: 1px solid goldenrod;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .equal{
      border: 1px solid gold;
-    border-radius: 10px;   
+    border-radius: 4px;   
 }
 
 #clear-btn{
     border: 1px solid violet;
-    border-radius: 10px;       
+    border-radius: 4px;       
 }
 
 #clear-btn:hover{
@@ -54,10 +55,11 @@ body{
 }
 
 #screen{
-    width: 300px;
+    width: 245px;
     border: 1px solid salmon;
+    background-color: rgb(128, 246, 121);
     height: 75px;
-    margin: 13px;
+    margin: 3px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
