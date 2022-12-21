@@ -1,0 +1,19 @@
+.main-daily {
+    width: 90%;
+    margin: 1rem auto;
+    background-color: slategray;
+    color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+
+    > ul {
+        display: flex;
+        list-style-type: none;
+        justify-content: space-evenly;
+    }
+
+    > ul li {
+        margin: 0 .5rem;  
+    }
+
+}
