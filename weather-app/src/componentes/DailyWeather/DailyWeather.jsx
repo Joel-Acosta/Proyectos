@@ -1,26 +1,50 @@
-import React from 'react'
-import './DailyWeather.scss'
-import DailyWeatherCard from './DailyWeatherCard.jsx'
+import React from "react";
+import "./DailyWeather.scss";
+import DailyWeatherCard from "./DailyWeatherCard.jsx";
 
 const DailyWeather = () => {
-    return (
-        <div className='main-daily'>
-            <ul>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-                <li>< DailyWeatherCard /></li>
-            </ul>
-        </div>
-    )
-}
+  return (
+    <div className="main-daily">
+      <ul>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+        <li>
+          <DailyWeatherCard />
+        </li>
+      </ul>
+    </div>
+  );
+};
 
-export default DailyWeather
+export default DailyWeather;

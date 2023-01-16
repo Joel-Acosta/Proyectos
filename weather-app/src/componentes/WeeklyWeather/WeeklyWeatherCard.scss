@@ -1,0 +1,19 @@
+.card {
+  display: flex;
+  width: 12%;
+  background: #1E1E1E;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  margin: 5px;
+
+  > ul {
+    list-style-type: none;
+    padding: 15px;
+    margin: 10px;
+  }
+
+  > ul li {
+    margin: 10px 0;
+    color: white;
+  }
+}

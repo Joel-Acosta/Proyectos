@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import "./WeeklyWeatherCard.scss";
 
-const WeeklyWeatherCard = () => {
-  return (
-    <div>WeeklyWeatherCard</div>
-  )
-}
+const WeeklyWeatherCard = (props) => {
+  return <div className="card">{props.children}</div>;
+};
 
-export default WeeklyWeatherCard
+export default WeeklyWeatherCard;
