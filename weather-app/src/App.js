@@ -1,5 +1,5 @@
 import SearchBar from "./componentes/SearchBar/SearchBar.jsx";
-import CurrentWeather from "./componentes/CurrentWeather";
+import CurrentWeather from "./componentes/CurrentWeather/CurrentWeather";
 import DailyWeather from "./componentes/DailyWeather/DailyWeather";
 import WeeklyWeather from "./componentes/WeeklyWeather/WeeklyWeather";
 import"./App.scss"
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="main">
       <SearchBar></SearchBar>
-      <CurrentWeather></CurrentWeather>
+      <CurrentWeather api={api}></CurrentWeather>
       <DailyWeather></DailyWeather>
       <WeeklyWeather dias={dias}></WeeklyWeather>
     </div>

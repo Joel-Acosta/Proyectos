@@ -2,12 +2,12 @@ import React from "react";
 import "./CurrentWeather.scss";
 import Background from "./Background";
 
-const CurrentWeather = () => { 
+const CurrentWeather = (props) => { 
 
     //lógica de api
     return (
         <div className="main-current " id="rainy">
-            <Background state={'rainy'}></Background>
+            <Background weather={props}></Background>
             {/* renderizar condicionalmente <video src={url} autoplay loop muted/> */}
             <div className="upper">
                 <div className="upper-left">
