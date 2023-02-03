@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchBar.scss";
 
-const SearchBar = ({ query, setQuery, weather, setWeather, api }) => {
+const SearchBar = ({ query, setQuery, setWeather, api }) => {
   function search(event) {
     if (event.key === "Enter") {
       const url = `${api.base}weather?q=${query}&units=metric&&APPID=${api.key}`

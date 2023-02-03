@@ -15,6 +15,7 @@ function App() {
     base: "https://api.openweathermap.org/data/2.5/",
   };
   const getDataFromChild = (data) => {
+    console.log('from search')
     console.log(data)
   }
 

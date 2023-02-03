@@ -4,6 +4,7 @@ import rainy from "../../assets/rainy.gif";
 
 const CurrentWeather = ({ weather }) => {
     const [gif, setGif] = useState('')
+   
     const outside = 'rainy'// info que viene de la api
     useEffect(() => {
         if (outside === 'rainy') { //función que define el gif segun outside
@@ -22,10 +23,10 @@ const CurrentWeather = ({ weather }) => {
         <div className="upper">
           <div className="upper-left">
             <h3>{weather.name}</h3>
-            <h3>Clima</h3>
+            <h3>clima</h3>
           </div>
           <div className="upper-mid">
-            <h1>18°</h1>
+            <h1>{weather.main.temp}</h1>
           </div>
           <div className="upper-right">
             <h3>Real Feel</h3>
