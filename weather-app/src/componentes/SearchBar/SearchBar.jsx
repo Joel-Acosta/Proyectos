@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SearchBar.scss";
 
-const SearchBar = ({ query, setQuery, setWeather, api }) => {
-  function search(event) {
+const SearchBar = ({ query, setQuery, setWeather, weather,api , getData}) => {
+  function search(event, props) {
+    const api = {
+      key: "e8df9e34440aa34948453856c26a29db",
+      base: "https://api.openweathermap.org/data/2.5/",
+    };
     if (event.key === "Enter") {
-      const url = `${api.base}weather?q=${query}&units=metric&&APPID=${api.key}`
+      const url = `${api.base}weather?q=${query}&units=metric&&APPID=${api.key}`;
       fetch(url)
         .then((res) => res.json())
         .then((result) => {
           console.log(result)
-          setWeather(result);
+         getData(result);
+          console.log(weather)
           setQuery('');
         });
-    } 
-  };
+    }
+  }
 
   return (
     <div className="search-box">
@@ -23,14 +28,15 @@ const SearchBar = ({ query, setQuery, setWeather, api }) => {
         <div>fav3</div>
         <div>fav4</div>
       </div>
-      
-      <input 
-        type="text" 
-        className="search-bar" 
-        placeholder="Search..." 
+
+      <input
+        type="text"
+        className="search-bar"
+        placeholder="Search..."
         value={query}
-        onChange={event => setQuery(event.target.value)}
-        onKeyPress={search}/>
+        onChange={(event) => setQuery(event.target.value)}
+        onKeyPress={search}
+      />
       <div className="actual-date">Tuesday, 31 May 2022 | Local Time 12:17</div>
     </div>
   );

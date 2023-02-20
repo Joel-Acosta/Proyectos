@@ -15,6 +15,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: slategray;
     border-radius: 15px;
     color: white;
+    display: flex;
 }
 
 
@@ -54,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .upper-mid {
-    width: 30%;
+    width: 35%;
     font-size: 3rem;
 }
 
@@ -82,5 +83,9 @@ h1, h2, h3, h4, h5, h6 {
     > ul span {
         margin: 0.5rem;
     }
+}
 
+.enter-city {
+    align-self: center;
+    margin: 0 auto;
 }

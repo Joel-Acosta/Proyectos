@@ -14,14 +14,16 @@ function App() {
     key: "e8df9e34440aa34948453856c26a29db",
     base: "https://api.openweathermap.org/data/2.5/",
   };
-  const getDataFromChild = (data) => {
-    console.log('from search')
-    console.log(data)
+
+  const getData = (data) => {
+    setWeather(data)
   }
+ 
 
   return (
     <div className="main">
       <SearchBar 
+        getData={getData}
         query={query} 
         setQuery={setQuery}
         weather={weather} 
