@@ -2,46 +2,20 @@ import React from "react";
 import "./DailyWeather.scss";
 import DailyWeatherCard from "./DailyWeatherCard.jsx";
 
-const DailyWeather = () => {
+const DailyWeather = ({ data }) => {
   return (
     <div className="main-daily">
       <ul>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
-        <li>
-          <DailyWeatherCard />
-        </li>
+        {data.map((dataPoint) => (
+          <li key={dataPoint.dt}>
+            <DailyWeatherCard
+              dt={dataPoint.dt_txt}
+              icon={dataPoint.weather[0].icon}
+              min={dataPoint.main.temp_min}
+              max={dataPoint.main.temp_max}
+            />
+          </li>
+        ))}
       </ul>
     </div>
   );

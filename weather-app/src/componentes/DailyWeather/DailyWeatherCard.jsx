@@ -1,13 +1,13 @@
 import React from 'react'
 import './DailyWeatherCard.scss'
 
-const DailyWeatherCard = () => {
+const DailyWeatherCard = ({dt, icon, min, max}) => {
     return (
         <div>
             <ul>
-                <li>00:00</li>
-                <span>imagen</span><li>44%</li>
-                <li>23-28</li>
+                <li>{dt.slice(11, 16)}</li>
+                <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt='img' />
+                <li>{Math.round(min)}°c - {Math.round(max)}°c</li>
             </ul>
         </div>
     )

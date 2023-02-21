@@ -10,7 +10,6 @@ const CurrentWeather = ({ weather }) => {
 
   const outside =
     typeof weather.weather != "undefined" ? weather.weather[0].main : ""; // info que viene de la api
-  console.log(outside);
   useEffect(() => {
     if (outside === "Rain") {
       //función que define el gif segun outside

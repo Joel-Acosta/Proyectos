@@ -9,29 +9,38 @@ const dias =['Lunes','Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domi
 
 function App() {
   const [query, setQuery] = useState("");
-  const [weather, setWeather] = useState({});
+  const [dailyWeather, setDailyWeather] = useState([])
+  const [currentWeather, setCurrentWeather] = useState({});
   const api = {
     key: "e8df9e34440aa34948453856c26a29db",
     base: "https://api.openweathermap.org/data/2.5/",
   };
 
   const getData = (data) => {
-    setWeather(data)
+    setCurrentWeather(data)
   }
+
+  const getDailyData = (data) => {
+    setDailyWeather(data)
+  }
+  
+  const dailyData = typeof dailyWeather != "undefined"? dailyWeather : 'nada' ;
+  console.log(dailyData);
  
 
   return (
     <div className="main">
       <SearchBar 
         getData={getData}
+        getDailyData={getDailyData}
         query={query} 
         setQuery={setQuery}
-        weather={weather} 
-        setWeather={setWeather}
+        weather={currentWeather} 
+        setWeather={setCurrentWeather}
         api={api}
         ></SearchBar>
-      <CurrentWeather weather={weather}></CurrentWeather>
-      <DailyWeather></DailyWeather>
+      <CurrentWeather weather={currentWeather}></CurrentWeather>
+      <DailyWeather data={dailyData}></DailyWeather>
       <WeeklyWeather dias={dias}></WeeklyWeather>
     </div>
   );
