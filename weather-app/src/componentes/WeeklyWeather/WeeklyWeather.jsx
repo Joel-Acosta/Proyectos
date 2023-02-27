@@ -2,14 +2,14 @@ import React from "react";
 import WeeklyWeatherCard from "./WeeklyWeatherCard";
 import "./WeeklyWeather.scss";
 
-const WeeklyWeather = (props) => {
+const WeeklyWeather = ({data}) => {
   return (
     <div className="container">
-      {props.dias.map((day) => {
+      {data.map((item) => {
         return (
-          <WeeklyWeatherCard key={day}>
+          <WeeklyWeatherCard key={Math.random()*2}>
             <ul>
-              <li>{day}</li>
+              <li>{item.dt}</li>
               <li>icono</li>
               <li>porcentaje</li>
               <li>temperatura</li>

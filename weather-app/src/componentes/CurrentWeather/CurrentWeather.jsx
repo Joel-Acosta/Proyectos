@@ -5,11 +5,11 @@ import clear from "../../assets/clear.gif";
 import cloudy from "../../assets/cloudy.gif";
 import windy from "../../assets/windy.gif";
 
-const CurrentWeather = ({ weather }) => {
+const CurrentWeather = ({ weather, location }) => {
   const [gif, setGif] = useState("");
 
   const outside =
-    typeof weather.weather != "undefined" ? weather.weather[0].main : ""; // info que viene de la api
+    typeof weather[0] != "undefined" ? weather[0].weather[0].main : ""; // info que viene de la api
   useEffect(() => {
     if (outside === "Rain") {
       //función que define el gif segun outside
@@ -43,36 +43,41 @@ const CurrentWeather = ({ weather }) => {
             <div className="upper">
               <div className="upper-left">
                 <h3>
-                  {typeof weather.name != "undefined"
-                    ? weather.name
+                  {typeof location[0].name != "undefined"
+                    ? location[0].name
                     : "Somewhere"}
                   ,{" "}
-                  {typeof weather.sys != "undefined"
-                    ? weather.sys.country
+                  {typeof location[0] != "undefined"
+                    ? location[0].country
                     : "SW"}
                 </h3>
+                <h4>
+                {typeof weather[0].weather != "undefined"
+                    ? `${weather[0].weather[0].description}`
+                    : "0°c"}
+                </h4>
               </div>
               <div className="upper-mid">
                 <h1>
-                  {typeof weather.main != "undefined"
-                    ? `${Math.round(weather.main.temp)}°c`
+                  {typeof weather[0].main != "undefined"
+                    ? `${Math.round(weather[0].main.temp)}°c`
                     : "0°c"}
                 </h1>
               </div>
               <div className="upper-right">
                 <h3>
-                  {typeof weather.main != "undefined"
-                    ? `Real Feel: ${Math.round(weather.main["feels_like"])}°c`
+                  {typeof weather[0].main != "undefined"
+                    ? `Real Feel: ${Math.round(weather[0].main["feels_like"])}°c`
                     : "Real Feel: 0°c"}
                 </h3>
                 <h3>
-                  {typeof weather.main != "undefined"
-                    ? `Humidity: ${weather.main.humidity}%`
+                  {typeof weather[0].main != "undefined"
+                    ? `Humidity: ${weather[0].main.humidity}%`
                     : "Humidity: 00%"}
                 </h3>
                 <h3>
-                  {typeof weather.wind != "undefined"
-                    ? `Wind: ${weather.wind.speed} Km/h`
+                  {typeof weather[0].wind != "undefined"
+                    ? `Wind: ${weather[0].wind.speed} Km/h`
                     : "Wind: 0 Km/h"}
                 </h3>
               </div>
@@ -92,14 +97,14 @@ const CurrentWeather = ({ weather }) => {
                 </li>
                 <span> | </span>
                 <li>
-                  {typeof weather.main != "undefined"
-                    ? `Max: ${weather.main["temp_max"]} °c`
+                  {typeof weather[0].main != "undefined"
+                    ? `Max: ${weather[0].main["temp_max"]} °c`
                     : "Max: 0 °c"}
                 </li>
                 <span> | </span>
                 <li>
-                  {typeof weather.main != "undefined"
-                    ? `Min: ${weather.main["temp_min"]} °c`
+                  {typeof weather[0].main != "undefined"
+                    ? `Min: ${weather[0].main["temp_min"]} °c`
                     : "Min: 0 °c"}
                 </li>
               </ul>

@@ -2,7 +2,7 @@ import React from "react";
 import "./SearchBar.scss";
 import axios from "axios";
 
-const SearchBar = ({ query, setQuery, setWeather, weather, api, getData, getDailyData }) => {
+const SearchBar = ({ query, setQuery,getWeeklydata,getLocation, setWeather, weather, api, getData }) => {
   async function search(event, props) {
     const api = {
       key: "e8df9e34440aa34948453856c26a29db",
@@ -10,17 +10,18 @@ const SearchBar = ({ query, setQuery, setWeather, weather, api, getData, getDail
     };
     if (event.key === "Enter") {
       let geo = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${api.key}`
+        `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=1&appid=${api.key}`
       );
+      getLocation(geo.data)
       const lat = geo.data[0].lat;
       const long = geo.data[0].lon;
+      console.log(geo.data);
+      //obtiene un listado 
       const dailyWeather = await axios.get(
-        `${api.base}forecast?lat=${lat}&lon=${long}&cnt=8&appid=${api.key}&units=metric`
+        `${api.base}forecast?lat=${lat}&lon=${long}&appid=${api.key}&units=metric`
       );
-      getDailyData(dailyWeather.data.list);
+      getData(dailyWeather.data.list);
 
-      let currentWeather = await axios.get(`${api.base}weather?lat=${lat}&lon=${long}&appid=${api.key}&units=metric`)
-      getData(currentWeather.data)
     }
   }
 
