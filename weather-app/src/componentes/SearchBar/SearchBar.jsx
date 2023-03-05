@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import "./SearchBar.scss";
 import axios from "axios";
 
-const SearchBar = ({ query, setQuery,getWeeklydata,getLocation, setWeather, weather, api, getData }) => {
+const SearchBar = ({ query, setQuery, getWeeklydata, getLocation, setWeather, weather, api, getData }) => {
+  const [favourites, setFavourites] = useState([])
+
   async function search(event, props) {
     const api = {
       key: "e8df9e34440aa34948453856c26a29db",
@@ -21,10 +23,11 @@ const SearchBar = ({ query, setQuery,getWeeklydata,getLocation, setWeather, weat
         `${api.base}forecast?lat=${lat}&lon=${long}&appid=${api.key}&units=metric`
       );
       getData(dailyWeather.data.list);
-
     }
   }
 
+  // función del botón de favorito, geo.data.name es lo que se agregaría en el array de favourite.
+  // agregar botón de search.
   return (
     <div className="search-box">
       <div className="favorite">
@@ -42,6 +45,7 @@ const SearchBar = ({ query, setQuery,getWeeklydata,getLocation, setWeather, weat
         onChange={(event) => setQuery(event.target.value)}
         onKeyPress={search}
       />
+      {/*  */}
       <div className="actual-date">Tuesday, 31 May 2022 | Local Time 12:17</div>
     </div>
   );

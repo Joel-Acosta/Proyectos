@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "./componentes/SearchBar/SearchBar.jsx";
 import CurrentWeather from "./componentes/CurrentWeather/CurrentWeather";
 import DailyWeather from "./componentes/DailyWeather/DailyWeather";
@@ -58,15 +58,7 @@ function App() {
     setWeeklyWeather(week);
   }
 
-  if (weatherData.length > 1) {
-    for (let i = 0; i < weeklyWeather.length; i++) {
-      const weatherDataZero = weeklyWeather[i].dt_txt;
-      const weatherDataZeroSliced = weatherDataZero.slice(0, 10);
-      let date = new Date(weatherDataZeroSliced);
-      let day = date.toLocaleString("en-us", { weekday: "long" });
-      console.log(day);   
-    }
-  }
+
 
   return (
     <div className="main">
@@ -84,7 +76,7 @@ function App() {
         location={location}
       ></CurrentWeather>
       <DailyWeather data={dailyWeather}></DailyWeather>
-      <WeeklyWeather data={weeklyWeather} />
+      <WeeklyWeather weeklyWeather={weeklyWeather} weatherData={weatherData}/>
     </div>
   );
 }
