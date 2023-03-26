@@ -19,7 +19,6 @@ const WeeklyWeather = ({ weeklyWeather, weatherData }) => {
       y generamos un card donde ingresamos los valores correspondientes.
       usando la variable day como depósito de lo que devuelve la función getDay de*/}
       {weeklyWeather.map((item) => {
-        console.log(item);
         let day = getDay(item)
         return (
           <WeeklyWeatherCard key={Math.random()*2}>

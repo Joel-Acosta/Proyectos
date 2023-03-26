@@ -1,5 +1,7 @@
-.main{
+.main {
+    min-height: 100vh;
     height: 100vh;
-    background-color: #282E32;
+    background-color: hsl(204, 11%, 18%);
+    background: linear-gradient(45deg, #282E32, #34424A, #34424A, #282E32);
     
 }

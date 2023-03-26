@@ -16,7 +16,6 @@ const dias = [
 ];
 
 function App() {
-  const [query, setQuery] = useState("");
   const [weatherData, setWeatherData] = useState([]);
   const [currentWeather, setCurrentWeather] = useState({});
   const [dailyWeather, setDailyWeather] = useState([]);
@@ -64,8 +63,6 @@ function App() {
     <div className="main">
       <SearchBar
         getData={getData}
-        query={query}
-        setQuery={setQuery}
         weather={currentWeather}
         setWeather={setCurrentWeather}
         getLocation={getLocation}
