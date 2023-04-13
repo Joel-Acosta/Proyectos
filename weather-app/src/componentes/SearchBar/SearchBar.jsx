@@ -15,17 +15,20 @@ const SearchBar = ({
 }) => {
   const [favourites, setFavourites] = useState([]);
   const [query, setQuery] = useState("");
-
-  /*   window.addEventListener('load', ()=>{
-    const fav = window.localStorage.getItem('fav')
-    setFavourites(fav)
-    console.log(fav);
-  }) */
+  const [searched, setSearched] = useState(false)
+  
+  useEffect(()=>{
+    if(searched) {
+      window.addEventListener("keypress", () => {
+        setSearched(false)
+      });
+    }
+  }, [searched])
 
   const handleFavouriteAdd = () => {
     if (
-      !Array.from(favourites).includes(query.toLowerCase()) &&
-      favourites.length < 4
+      !favourites.includes(query.toLowerCase()) &&
+      favourites.length < 4 && searched
     ) {
       setFavourites((favourites) => [...favourites, query]);
     } else {
@@ -54,6 +57,13 @@ const SearchBar = ({
       `${apiCredentials.base}forecast?lat=${lat}&lon=${long}&appid=${apiCredentials.key}&units=metric`
     );
     getData(dailyWeather.data.list);
+    setSearched(true)
+  }
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleAPISearch()
+    }
   }
 
   // función del botón de favorito, geo.data.name es lo que se agregaría en el array de favourite.
@@ -81,14 +91,14 @@ const SearchBar = ({
         placeholder="Search..."
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        // onKeyPress={handleAPISearch}
+        onKeyPress={handleKeyPress}
       />
       <button onClick={handleAPISearch}>
         Search.. <SearchIcon />
       </button>
       <button onClick={handleFavouriteAdd}>
         Add to Favorites
-        {Array.from(favourites).includes(query.toLowerCase()) ? (
+        {Array.from(favourites).includes(query) ? (
           <FavoriteIcon />
         ) : (
           <FavoriteBorderIcon />

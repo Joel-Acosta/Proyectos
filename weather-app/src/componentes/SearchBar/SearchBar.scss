@@ -12,11 +12,13 @@
     width: 70%;
     height: 30%;
     margin: auto;
+    align-items: center;
     justify-content: space-around;
     > button {
-      width: 25%;
+      width: 20%;
+      height: 80%;
       color: white;
-      background-color: green;
+      background-color: rgba(107, 107, 107, 0.6);
       overflow: hidden;
       border-radius: 5px;
     }
@@ -38,7 +40,7 @@
     background-color: rgb(255, 255, 255);
     border-radius: 16px;
 
-    box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px rgba(60, 60, 60, 0.2);
   }
 
   > .actual-date {
